@@ -30,15 +30,15 @@ class MainActivity : AppCompatActivity() {
         binding.mainBnv.setOnItemSelectedListener{ item ->
             when (item.itemId) {
 
-                R.id.mypageFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, MyPageFragment())
-                        .commitAllowingStateLoss()
-                    return@setOnItemSelectedListener true
-                }
                 R.id.homeFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.mypageFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, MyPageFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
