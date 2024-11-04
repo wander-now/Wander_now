@@ -1,140 +1,1285 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
     tools:context=".HomeFragment">
 
-    <View
-        android:id="@+id/home_banner"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="284dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/img_home_banner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
-        android:fontFamily="@font/lemon"
-        android:text="Wander Now"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:id="@+id/home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="284dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/img_home_banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/rectangle_3"
-        android:layout_width="match_parent"
-        android:layout_height="73dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="#73000000"
-        app:layout_constraintBottom_toBottomOf="@+id/home_banner" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/lemon"
+            android:text="Wander Now"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/some_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/inter_extrabold"
-        android:lineSpacingExtra="4sp"
-        android:text="반가워요!\n오늘은 어디로 떠나볼까요?"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/home_banner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
+        <View
+            android:id="@+id/rectangle_3"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="#73000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner" />
 
-    <!-- Auto layout, variables, and unit scale are not yet supported -->
+        <TextView
+            android:id="@+id/some_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/inter_extrabold"
+            android:lineSpacingExtra="4sp"
+            android:text="반가워요!\n오늘은 어디로 떠나볼까요?"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
 
-    <TextView
-        android:id="@+id/current_location_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="현재 위치 : 경기도 고양시 덕양구 항공대학로 76"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        <TextView
+            android:id="@+id/current_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="현재 위치 : 경기도 고양시 덕양구 항공대학로 76"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_marker"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_marker"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_marker" />
 
-    <TextView
-        android:id="@+id/current_weather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="현재 날씨 : 맑음"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        <TextView
+            android:id="@+id/current_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="현재 날씨 : 맑음"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_weather"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_weather"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_weather" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="19dp"
-        android:src="@drawable/icon_marker"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_banner" />
+        <ImageView
+            android:id="@+id/home_icon_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/icon_marker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_banner" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/icon_weather"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <ImageView
+            android:id="@+id/home_icon_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/icon_weather"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_icon_marker" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/gray_line"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_weather" />
+        <ImageView
+            android:id="@+id/home_gray_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/gray_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_weather" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/icon_tumb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        <ImageView
+            android:id="@+id/home_icon_tumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_tumb"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_gray_line" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="1시간 이내 추천 여행지"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        <TextView
+            android:id="@+id/home_one_hour_recommend_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="1시간 이내 추천 여행지"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_tumb"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_tumb"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_tumb" />
+        
+        <HorizontalScrollView
+            android:id="@+id/home_one_hour_recommend_hs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_one_hour_recommend_tv">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="28dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_pocheon_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_pocheon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_pocheon_time_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_clock"
+                        app:layout_constraintTop_toBottomOf="@id/home_pocheon_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_pocheon_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="소요시간 : 55분"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_pocheon_time_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_pocheon_time_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_pocheon_time_icon"/>
+
+                    <ImageView
+                        android:id="@+id/home_pocheon_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_pocheon_time_icon"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_pocheon_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경기도 포천시"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_pocheon_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_pocheon_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_pocheon_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_pocheon_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="4.9"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_pocheon_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_pocheon_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_pocheon_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_pocheon_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_pocheon_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_pocheon_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_pocheon_tag_tv1"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="자연"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_pocheon_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_pocheon_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_pocheon_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="계곡"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_pocheon_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_pocheon_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_pocheon_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_pocheon_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="관광"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_pocheon_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_pocheon_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_pocheon_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_gapyeong_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_gapyeong"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_gapyeong_time_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_clock"
+                        app:layout_constraintTop_toBottomOf="@id/home_gapyeong_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_gapyeong_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="소요시간 : 60분"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_gapyeong_time_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_gapyeong_time_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gapyeong_time_icon"/>
+
+                    <ImageView
+                        android:id="@+id/home_gapyeong_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_gapyeong_time_icon"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_gapyeong_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경기도 가평군"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_gapyeong_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_gapyeong_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gapyeong_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_gapyeong_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="5.0"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_gapyeong_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gapyeong_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_gapyeong_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_gapyeong_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_gapyeong_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gapyeong_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_gapyeong_tag_tv1"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="자연"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_gapyeong_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_gapyeong_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_gapyeong_tag_tv2"
+                        android:layout_width="51dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="액티비티"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_gapyeong_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_gapyeong_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_gapyeong_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_gapyeong_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="관광"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_gapyeong_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_gapyeong_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gapyeong_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_suwon_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_suwon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_suwon_time_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_clock"
+                        app:layout_constraintTop_toBottomOf="@id/home_suwon_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_suwon_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="소요시간 : 55분"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_suwon_time_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_suwon_time_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_suwon_time_icon"/>
+
+                    <ImageView
+                        android:id="@+id/home_suwon_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_suwon_time_icon"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_suwon_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경기도 수원시"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_suwon_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_suwon_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_suwon_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_suwon_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="4.7"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_suwon_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_suwon_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_suwon_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_suwon_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_suwon_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_suwon_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_suwon_tag_tv1"
+                        android:layout_width="51dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="한국적인"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_suwon_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_suwon_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_suwon_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="야경"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_suwon_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_suwon_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_suwon_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_suwon_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="관광"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_suwon_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_suwon_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_suwon_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_dongducheon_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_dongducheon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_dongducheon_time_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_clock"
+                        app:layout_constraintTop_toBottomOf="@id/home_dongducheon_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_dongducheon_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="소요시간 : 55분"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_dongducheon_time_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_dongducheon_time_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_dongducheon_time_icon"/>
+
+                    <ImageView
+                        android:id="@+id/home_dongducheon_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_dongducheon_time_icon"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_dongducheon_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경기도 동두천시"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_dongducheon_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_dongducheon_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_dongducheon_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_dongducheon_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="4.5"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_dongducheon_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_dongducheon_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_dongducheon_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_dongducheon_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_dongducheon_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_dongducheon_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_dongducheon_tag_tv1"
+                        android:layout_width="51dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="이국적인"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_dongducheon_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_dongducheon_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_dongducheon_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="자연"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_dongducheon_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_dongducheon_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_dongducheon_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_dongducheon_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="관광"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_dongducheon_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_dongducheon_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_dongducheon_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_gwangju_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_gwangju"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_gwangju_time_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_clock"
+                        app:layout_constraintTop_toBottomOf="@id/home_gwangju_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_gwangju_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="소요시간 : 50분"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_gwangju_time_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_gwangju_time_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gwangju_time_icon"/>
+
+                    <ImageView
+                        android:id="@+id/home_gwangju_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_gwangju_time_icon"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_gwangju_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경기도 광주시"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_gwangju_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_gwangju_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gwangju_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_gwangju_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="4.8"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_gwangju_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gwangju_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_gwangju_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_gwangju_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_gwangju_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gwangju_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_gwangju_tag_tv1"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="자연"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_gwangju_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_gwangju_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_gwangju_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="단풍"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_gwangju_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_gwangju_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_gwangju_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_gwangju_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="관광"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_gwangju_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_gwangju_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gwangju_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/home_icon_fire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_fire"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_one_hour_recommend_hs" />
+
+        <TextView
+            android:id="@+id/home_popular_recommend_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="요즘 인기있는 여행지"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_fire"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_fire"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_fire" />
+
+        <HorizontalScrollView
+            android:id="@+id/home_popular_recommend_hs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_popular_recommend_tv">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="28dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_geoje_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_geoje"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_geoje_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_geoje_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_geoje_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경남 거제시"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_geoje_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_geoje_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_geoje_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_geoje_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="5.0"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_geoje_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_geoje_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_geoje_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_geoje_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_geoje_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_geoje_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_geoje_tag_tv1"
+                        android:layout_width="51dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="한국적인"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_geoje_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_geoje_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_geoje_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="바다"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_geoje_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_geoje_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_geoje_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_geoje_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="노을"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_geoje_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_geoje_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_geoje_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_yeoncheon_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_yeoncheon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_yeoncheon_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_yeoncheon_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_yeoncheon_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경기도 연천군"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_yeoncheon_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_yeoncheon_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_yeoncheon_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_yeoncheon_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="5.0"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_yeoncheon_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_yeoncheon_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_yeoncheon_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_yeoncheon_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_yeoncheon_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_yeoncheon_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_yeoncheon_tag_tv1"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="가을"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_yeoncheon_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_yeoncheon_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_yeoncheon_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="자연"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_yeoncheon_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_yeoncheon_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_yeoncheon_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_yeoncheon_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="관광"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_yeoncheon_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_yeoncheon_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_yeoncheon_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@drawable/gray_border"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/home_gyeongju_iv"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/img_gyeongju"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/home_iv_background"
+                        android:clipToOutline="true"/>
+
+                    <ImageView
+                        android:id="@+id/home_gyeongju_marker_icon"
+                        android:layout_width="12dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="7dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_marker"
+                        app:layout_constraintTop_toBottomOf="@id/home_gyeongju_iv"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/home_gyeongju_marker_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="경북 경주시"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/home_gyeongju_marker_icon"
+                        app:layout_constraintTop_toTopOf="@id/home_gyeongju_marker_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gyeongju_marker_icon"/>
+
+                    <TextView
+                        android:id="@+id/home_gyeongju_star_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="5.0"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/home_gyeongju_marker_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gyeongju_marker_tv"/>
+
+                    <ImageView
+                        android:id="@+id/home_gyeongju_star_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/icon_star"
+                        app:layout_constraintEnd_toStartOf="@id/home_gyeongju_star_tv"
+                        app:layout_constraintTop_toTopOf="@id/home_gyeongju_star_tv"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gyeongju_star_tv"/>
+
+                    <TextView
+                        android:id="@+id/home_gyeongju_tag_tv1"
+                        android:layout_width="51dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="한국적인"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toStartOf="@id/home_gyeongju_marker_icon"
+                        app:layout_constraintTop_toBottomOf="@id/home_gyeongju_marker_icon" />
+
+                    <TextView
+                        android:id="@+id/home_gyeongju_tag_tv2"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:gravity="center"
+                        android:text="가을"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/home_gyeongju_tag_tv1"
+                        app:layout_constraintStart_toEndOf="@id/home_gyeongju_tag_tv1"
+                        app:layout_constraintTop_toTopOf="@id/home_gyeongju_tag_tv1" />
+
+                    <TextView
+                        android:id="@+id/home_gyeongju_tag_tv3"
+                        android:layout_width="33dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/gray_border"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="단풍"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/home_gyeongju_tag_tv2"
+                        app:layout_constraintTop_toTopOf="@id/home_gyeongju_tag_tv2"
+                        app:layout_constraintBottom_toBottomOf="@id/home_gyeongju_tag_tv2"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
