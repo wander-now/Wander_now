@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/Btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_back"
+            android:contentDescription="뒤로 가기 버튼"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/LocationDetailGapyeoung"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/Btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/location_detail_gapyeoung"/>
+
+        <ImageView
+            android:id="@+id/IconMarker"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_marker"
+            app:layout_constraintTop_toBottomOf="@id/LocationDetailGapyeoung"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/LocationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경기도 가평군"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/LocationDetailGapyeoung"
+            app:layout_constraintStart_toEndOf="@id/IconMarker"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/LocationDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수도권에 거주하는 사람들에게 있어 1박 2일 정도의 일정으로 \n캠핑, 여행하기 좋은 근교 여행지로 유명하다.\n\n가평은 수도권에서 지리적으로 가까운 곳임에도 도심을 벗어나 \n교외의 느낌을 주는 점도 긍정적으로 작용한다. 아침 고요 수목\n원과 남이섬을 다녀오는 관광상품이 인기가 많고 대학생들\n의장소로 유명한 대성리도 가평에 속한다."
+            app:layout_constraintTop_toBottomOf="@id/LocationName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"/>
+
+        <ImageView
+            android:id="@+id/GrayLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gray_line"
+            app:layout_constraintTop_toBottomOf="@id/LocationDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="11dp"/>
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="평점"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/GrayLine"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"/>
+
+        <ImageView
+            android:id="@+id/Star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star"
+            app:layout_constraintTop_toBottomOf="@id/GrayLine"
+            app:layout_constraintStart_toEndOf="@id/rate"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(14)"
+            app:layout_constraintTop_toBottomOf="@id/GrayLine"
+            app:layout_constraintStart_toEndOf="@id/Star"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리뷰"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/rate"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/location_detail_RV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/review"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/GrayLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gray_line"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_RV"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="11dp"/>
+
+        <TextView
+            android:id="@+id/locationAttraction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지역 명소"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/GrayLine2"
+            android:layout_marginTop="5dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/locationAttractionRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/locationAttraction"
+            android:layout_marginTop="10dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
