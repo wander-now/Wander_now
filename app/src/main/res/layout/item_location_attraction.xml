@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingEnd="1.5dp"
+    android:paddingBottom="5dp"
+    android:layout_marginRight="12dp"
+    android:background="@drawable/gray_border">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/location_attraction_img_cardView"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        android:layout_margin="1.5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:id="@+id/location_attraction_img_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/nami_island"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/location_attraction_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:text="남이섬"
+        android:textColor="#000000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location_attraction_img_cardView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

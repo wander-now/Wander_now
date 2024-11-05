@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:paddingRight="12dp"
+    android:paddingBottom="12dp"
+    android:background="@drawable/gray_border"
+    android:backgroundTint="#0D000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/review_profile_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/profile"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/review_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="주니"
+        android:textColor="#000000"
+        android:textSize="12dp"
+        app:layout_constraintStart_toEndOf="@id/review_profile_iv"
+        app:layout_constraintTop_toTopOf="@id/review_profile_iv"
+        app:layout_constraintBottom_toBottomOf="@id/review_profile_iv">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/review_star_iv"
+        android:layout_width="58dp"
+        android:layout_height="10dp"
+        android:src="@drawable/star"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/review_name_tv"
+        app:layout_constraintBottom_toBottomOf="@id/review_name_tv">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/review_text_tv"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="짚라인과 수상 레포츠를 즐기면서 스릴을 만끽했어요. 친구들과 함께라면 더욱즐거울 것 같아요!"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_profile_iv">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

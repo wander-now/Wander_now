@@ -1,14 +1,17 @@
 package com.example.wandernow
 
+import android.provider.CallLog.Locations
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wandernow.databinding.ItemTriplistBinding
+import androidx.recyclerview.widget.RecyclerView.ItemAnimator.ItemHolderInfo
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.wandernow.databinding.ItemRecordBinding
 
 class TriplistRVAdapter(private var tripList: ArrayList<Triplist>):RecyclerView.Adapter<TriplistRVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): TriplistRVAdapter.ViewHolder {
 
-        val binding: ItemTriplistBinding = ItemTriplistBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup,false)
+        val binding: ItemRecordBinding = ItemRecordBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup,false)
         return  ViewHolder(binding)
     }
 
@@ -20,7 +23,7 @@ class TriplistRVAdapter(private var tripList: ArrayList<Triplist>):RecyclerView.
         return tripList.size
     }
 
-    inner class ViewHolder (val binding:ItemTriplistBinding ): RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder (val binding:ItemRecordBinding ): RecyclerView.ViewHolder(binding.root){
 
         fun bind(triplist: Triplist){
             binding.tripListDateTv.text = triplist.date

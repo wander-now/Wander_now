@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/location_detail_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:backgroundTint="#00FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_back" />
+
+        <ImageView
+            android:id="@+id/location_detail_gapyeong_iv"
+            android:layout_width="match_parent"
+            android:layout_height="284dp"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_back_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/img_gapyeong"/>
+
+        <ImageView
+            android:id="@+id/location_detail_marker_icon"
+            android:layout_width="15dp"
+            android:layout_height="19.5dp"
+            android:src="@drawable/icon_marker"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_gapyeong_iv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/LocationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="경기도 가평군"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/location_detail_marker_icon"
+            app:layout_constraintStart_toEndOf="@id/location_detail_marker_icon"
+            app:layout_constraintTop_toTopOf="@id/location_detail_marker_icon" />
+
+        <TextView
+            android:id="@+id/LocationDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:text="수도권에 거주하는 사람들에게 있어 1박 2일 정도의 일정으로 \n캠핑, 여행하기 좋은 근교 여행지로 유명하다.\n\n가평은 수도권에서 지리적으로 가까운 곳임에도 도심을 벗어나 \n교외의 느낌을 주는 점도 긍정적으로 작용한다. 아침 고요 수목\n원과 남이섬을 다녀오는 관광상품이 인기가 많고 대학생들\n의장소로 유명한 대성리도 가평에 속한다."
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_marker_icon" />
+
+        <ImageView
+            android:id="@+id/location_detail_gray_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gray_line"
+            app:layout_constraintTop_toBottomOf="@id/LocationDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="11dp"/>
+
+        <TextView
+            android:id="@+id/location_detail_rate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="19dp"
+            android:text="평점"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_gray_line" />
+
+        <ImageView
+            android:id="@+id/location_detail_star_iv"
+            android:layout_width="58dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/star"
+            app:layout_constraintStart_toEndOf="@id/location_detail_rate_tv"
+            app:layout_constraintTop_toTopOf="@+id/location_detail_rate_tv"
+            app:layout_constraintBottom_toBottomOf="@id/location_detail_rate_tv"/>
+
+        <TextView
+            android:id="@+id/location_detail_star_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(14)"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toTopOf="@id/location_detail_star_iv"
+            app:layout_constraintBottom_toBottomOf="@id/location_detail_star_iv"
+            app:layout_constraintStart_toEndOf="@id/location_detail_star_iv" />
+
+        <TextView
+            android:id="@+id/location_detail_review_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리뷰"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_rate_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="28dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/location_detail_review_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_review_tv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/location_detail_gray_line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gray_line"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_review_rv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="11dp"/>
+
+        <TextView
+            android:id="@+id/location_detail_attraction_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지역 명소"
+            android:textSize="20sp"
+            android:layout_marginTop="17dp"
+            android:textStyle="bold"
+            android:layout_marginStart="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_gray_line2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/location_detail_attraction_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/location_detail_attraction_tv"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -3,12 +3,21 @@ package com.example.wandernow
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import com.example.wandernow.databinding.FragmentHomeBinding
+import com.example.wandernow.viewmodel.LocationViewModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
 
 class HomeFragment :Fragment() {
@@ -44,21 +53,37 @@ class HomeFragment :Fragment() {
 
         locationRVAdapter.setMyItemCLickListener(object: LocationRVAdapter.MyItemClickListener{
             override fun onItemClick(location: Location) {
-                changeTripDetailFragment(location)
+                changeLocationDetailFragment(location)
             }
         })
-
 
         val popularRVAdapter = PopularRVAdapter(popularLocationDatas)
         binding.homePopularRv.adapter = popularRVAdapter
         binding.homePopularRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+//        val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("location")
+//
+//        databaseReference.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                locationDatas.clear() // 기존 데이터 삭제
+//                for (locationSnapshot in snapshot.children) {
+//                    val location = locationSnapshot.getValue(Location::class.java)
+//                    location?.let { locationDatas.add(it) }
+//                }
+//                locationRVAdapter.notifyDataSetChanged() // 어댑터에 데이터 변경 알림
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.e("FirebaseError", error.message)
+//            }
+//        })
+
         return binding.root
     }
 
-    private fun changeTripDetailFragment(location: Location) {
+    private fun changeLocationDetailFragment(location: Location) {
         (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, TripDetailFragment().apply {
+            .replace(R.id.main_frm, LocationDetailFragment().apply {
 //                arguments = Bundle().apply {
 //                    val gson = Gson()
 //                    val triplistJson = gson.toJson(location)
