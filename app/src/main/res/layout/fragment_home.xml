@@ -1,19 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="home"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="284dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/img_home_banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/lemon"
+            android:text="Wander Now"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/rectangle_3"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="#73000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner" />
+
+        <TextView
+            android:id="@+id/some_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/inter_extrabold"
+            android:lineSpacingExtra="4sp"
+            android:text="반가워요!\n오늘은 어디로 떠나볼까요?"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
+
+        <TextView
+            android:id="@+id/current_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="현재 위치 : 경기도 고양시 덕양구 항공대학로 76"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_marker"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_marker"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_marker" />
+
+        <TextView
+            android:id="@+id/current_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="현재 날씨 : 맑음"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_weather"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_weather"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_weather" />
+
+        <ImageView
+            android:id="@+id/home_icon_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/icon_marker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_banner" />
+
+        <ImageView
+            android:id="@+id/home_icon_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/icon_weather"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_icon_marker" />
+
+        <ImageView
+            android:id="@+id/home_gray_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/gray_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_weather" />
+
+        <ImageView
+            android:id="@+id/home_icon_tumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_tumb"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_gray_line" />
+
+        <TextView
+            android:id="@+id/home_one_hour_recommend_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="1시간 이내 추천 여행지"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_tumb"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_tumb"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_tumb" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@id/home_one_hour_recommend_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingEnd="28dp"
+            tools:listitem="@layout/item_one_hour_recommend"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/home_one_hour_recommend_tv"
+            />
+
+        <ImageView
+            android:id="@+id/home_icon_fire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/icon_fire"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_one_hour_recommend_rv" />
+
+        <TextView
+            android:id="@+id/home_popular_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="요즘 인기있는 여행지"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/home_icon_fire"
+            app:layout_constraintStart_toEndOf="@+id/home_icon_fire"
+            app:layout_constraintTop_toTopOf="@+id/home_icon_fire" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_popular_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingEnd="28dp"
+            tools:listitem="@layout/item_popular"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/home_popular_tv"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

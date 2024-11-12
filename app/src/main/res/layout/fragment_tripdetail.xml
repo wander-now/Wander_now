@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
+    tools:context=".HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/trip_detail_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:backgroundTint="#00FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_back" />
+
+        <TextView
+            android:id="@+id/trip_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="여행 기록 상세"
+            android:textColor="#4E5966"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_back_btn" />
+
+        <TextView
+            android:id="@+id/trip_detail_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="장소: 경기도 가평군"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_tv" />
+
+        <HorizontalScrollView
+            android:id="@+id/trip_detail_img_hs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trip_detail_location_tv">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="28dp">
+
+                <ImageView
+                    android:layout_width="122dp"
+                    android:layout_height="122dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_detail_gapyeong_1"
+                    android:background="@drawable/home_iv_background"
+                    android:clipToOutline="true"/>
+
+                <ImageView
+                    android:layout_width="122dp"
+                    android:layout_height="122dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_detail_gapyeong_2"
+                    android:background="@drawable/home_iv_background"
+                    android:clipToOutline="true"/>
+
+                <ImageView
+                    android:layout_width="122dp"
+                    android:layout_height="122dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_detail_gapyeong_3"
+                    android:background="@drawable/home_iv_background"
+                    android:clipToOutline="true"/>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/trip_detail_line_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/gray_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_img_hs"/>
+
+        <TextView
+            android:id="@+id/trip_detail_weather_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="날씨"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_line_1" />
+
+        <ImageView
+            android:id="@+id/trip_detail_weather_ic"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="135dp"
+            app:layout_constraintBottom_toBottomOf="@+id/trip_detail_weather_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/trip_detail_weather_tv"
+            app:srcCompat="@drawable/icon_weather" />
+
+        <ImageView
+            android:id="@+id/trip_detail_line_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/gray_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_weather_tv"/>
+
+        <TextView
+            android:id="@+id/trip_detail_with_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="함께한 사람"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_line_2" />
+
+        <TextView
+            android:id="@+id/trip_detail_with_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="135dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="여자친구"
+            android:textColor="#4E5966"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/trip_detail_with_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/trip_detail_with_tv" />
+
+        <ImageView
+            android:id="@+id/trip_detail_line_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/gray_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_with_tv"/>
+
+        <TextView
+            android:id="@+id/trip_detail_location_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="상세 주소"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_line_3" />
+
+        <TextView
+            android:id="@+id/trip_detail_location_detail_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="135dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="남이섬"
+            android:textColor="#4E5966"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/trip_detail_location_detail_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/trip_detail_location_detail_tv" />
+
+        <ImageView
+            android:id="@+id/trip_detail_line_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/gray_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_location_detail_tv"/>
+
+        <TextView
+            android:id="@+id/trip_detail_memo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="메모"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_line_4" />
+
+        <TextView
+            android:id="@+id/trip_detail_memo_text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="여자친구랑 100일 데이트!!!"
+            android:textColor="#4E5966"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_detail_memo_tv" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
