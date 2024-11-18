@@ -11,13 +11,15 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="76dp"
         android:fontFamily="@font/noto_sans_kr"
         android:text="Nickname@gmail.com"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -33,15 +35,16 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:fontFamily="@font/noto_sans_kr_bold"
         android:text="#닉네임_주니"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_bias="0.19"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
         android:id="@+id/textView6"
@@ -64,7 +67,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
         <Button
@@ -117,7 +120,7 @@
         android:layout_width="336dp"
         android:layout_height="48dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/btn_smol"
+        android:background="@drawable/btn_small"
         android:fontFamily="@font/inter_semibold"
         android:text="로그아웃"
         android:textColor="#FF1C1C"
