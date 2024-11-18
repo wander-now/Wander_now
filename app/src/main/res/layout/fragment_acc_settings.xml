@@ -5,16 +5,19 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccSettingsFragment" >
+    tools:context=".AccSettingsFragment">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="email"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        android:fontFamily="@font/noto_sans_kr"
+        android:text="Nickname@gmail.com"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -22,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
-        android:src="@drawable/Avatar"
+        android:src="@drawable/avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,48 +34,96 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="#닉네임"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:text="#닉네임_주니"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_medium"
         android:text="계정 설정"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#EDF1F6"
-            android:drawableLeft="@drawable/shield"
+            android:id="@+id/button1"
+            android:layout_width="336dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/shield"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingStart="15dp"
             android:text="비밀번호 및 보안"
+            android:textAlignment="textStart"
             android:textColor="#00530A"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="개인정보 관리" />
+            android:layout_width="336dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="10sp"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingStart="15dp"
+            android:text="개인정보 관리"
+            android:textAlignment="textStart"
+            android:textColor="#00530A"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="나의 리뷰 관리" />
+            android:layout_width="336dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/write"
+            android:drawablePadding="10sp"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingStart="15dp"
+            android:text="나의 리뷰 관리"
+            android:textAlignment="textStart"
+            android:textColor="#00530A"
+            android:textSize="15sp" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_smol"
+        android:fontFamily="@font/inter_semibold"
+        android:text="로그아웃"
+        android:textColor="#FF1C1C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
