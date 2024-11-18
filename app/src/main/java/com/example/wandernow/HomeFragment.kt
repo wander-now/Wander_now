@@ -1,15 +1,13 @@
 package com.example.wandernow
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import com.example.wandernow.databinding.FragmentHomeBinding
 import com.example.wandernow.viewmodel.LocationViewModel
 import com.google.firebase.database.DataSnapshot
@@ -17,13 +15,17 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
 
 class HomeFragment :Fragment() {
     lateinit var binding: FragmentHomeBinding
     private var locationDatas = ArrayList<Location>()
     private var popularLocationDatas = ArrayList<Location>()
+    private val viewModel: LocationViewModel by viewModels()
+    private lateinit var locationRVAdapter: LocationRVAdapter
+
+    private var database: FirebaseDatabase? = null
+    private var databaseReference: DatabaseReference? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +33,29 @@ class HomeFragment :Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        database = FirebaseDatabase.getInstance() // 파이어 데이터베이스 연동
+        databaseReference = database!!.getReference("location")
+
+//        databaseReference!!.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                locationDatas.clear() // 기존 데이터 초기화
+//
+//                for (data in dataSnapshot.children) {
+//                    val locationData = data.getValue(Location::class.java)
+//                    locationData?.let{
+//                        locationDatas.add(it)
+//                    }
+//                }
+//                locationRVAdapter.notifyDataSetChanged() // 어댑터에 데이터 변경 알림
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//        })
+
+//        observeViewModel()
 
         locationDatas.apply{
             add(Location("55분","경기도 포천시", 4.9,"자연","계곡","관광",R.drawable.img_pocheon))
@@ -47,7 +72,7 @@ class HomeFragment :Fragment() {
             add(Location("","경북 경주시", 5.0,"한국적인","가을","단풍",R.drawable.img_gyeongju))
         }
 
-        val locationRVAdapter = LocationRVAdapter(locationDatas)
+        locationRVAdapter = LocationRVAdapter(locationDatas)
         binding.homeOneHourRecommendRv.adapter = locationRVAdapter
         binding.homeOneHourRecommendRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
@@ -61,9 +86,8 @@ class HomeFragment :Fragment() {
         binding.homePopularRv.adapter = popularRVAdapter
         binding.homePopularRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-//        val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().getReference("location")
-//
-//        databaseReference.addValueEventListener(object : ValueEventListener {
+
+//        databaseReference!!.addValueEventListener(object : ValueEventListener {
 //            override fun onDataChange(snapshot: DataSnapshot) {
 //                locationDatas.clear() // 기존 데이터 삭제
 //                for (locationSnapshot in snapshot.children) {
@@ -91,5 +115,13 @@ class HomeFragment :Fragment() {
 //                }
             })
             .commitAllowingStateLoss()
+    }
+
+    private fun observeViewModel() {
+        viewModel.locations.observe(viewLifecycleOwner, Observer { locations ->
+            locations?.let {
+                locationRVAdapter.updateLocations(it)
+            }
+        })
     }
 }

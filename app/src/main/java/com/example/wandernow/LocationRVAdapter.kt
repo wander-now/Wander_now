@@ -2,6 +2,7 @@ package com.example.wandernow
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wandernow.databinding.ItemOneHourRecommendBinding
 
@@ -11,6 +12,7 @@ class LocationRVAdapter(private var locationList: ArrayList<Location>): Recycler
     }
 
     private lateinit var myItemClickListener: MyItemClickListener
+
     fun setMyItemCLickListener(itemClickListener: MyItemClickListener){
         myItemClickListener = itemClickListener
     }
@@ -30,6 +32,9 @@ class LocationRVAdapter(private var locationList: ArrayList<Location>): Recycler
 
     inner class ViewHolder(val binding: ItemOneHourRecommendBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(location: Location) {
+            binding.location = location // 데이터 바인딩 설정
+            binding.executePendingBindings()
+
             binding.itemTimeTv2.text = location.time
             binding.itemMarkerTv.text = location.name
             binding.itemStarTv.text = location.star.toString()
@@ -39,4 +44,10 @@ class LocationRVAdapter(private var locationList: ArrayList<Location>): Recycler
             binding.itemCoverImgIv.setImageResource(location.coverImg!!)
         }
     }
+
+    fun updateLocations(newLocationList: List<Location>) {
+        locationList = newLocationList as ArrayList<Location>
+        notifyDataSetChanged()
+    }
+
 }

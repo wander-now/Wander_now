@@ -27,8 +27,8 @@ class TripListFragment :Fragment(){
             add(Triplist("2024.09.18",R.drawable.gapyeoung3,"장소: 경기도 가평군"))
         }
 
-        val locationRVAdapter = TriplistRVAdapter(triplistDatas)
-        binding.tripRV.adapter = locationRVAdapter
+        val triplistRVAdapter = TriplistRVAdapter(triplistDatas)
+        binding.tripRV.adapter = triplistRVAdapter
         binding.tripRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         return binding.root

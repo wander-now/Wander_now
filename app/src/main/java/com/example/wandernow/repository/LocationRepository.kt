@@ -6,37 +6,33 @@ import com.example.wandernow.Location
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 
 class LocationRepository {
-    fun getData() : LiveData<MutableList<Location>> {
+    private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("location")
 
-        val mutableData = MutableLiveData<MutableList<Location>>()
-        val database = Firebase.database("https://console.firebase.google.com/project/wandernow-4df68/database/wandernow-4df68-default-rtdb/data/~2F?hl=ko")
-        val myRef = database.getReference("location")
+    fun getLocations(): LiveData<List<Location>> {
+        val locationsLiveData = MutableLiveData<List<Location>>()
 
-        myRef.addValueEventListener(object : ValueEventListener {
-
-            val listData : MutableList<Location> = mutableListOf<Location>()
-
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
-                if (snapshot.exists()){
-                    listData.clear() //실시간 데이터 업데이트 시 리사이클러뷰 데이터 중복 방지
-
-                    for ( userSnapshot in snapshot.children ){
-                        val getData = userSnapshot.getValue(Location::class.java)
-                        listData.add(getData!!)
-
-                        mutableData.value = listData
-                    }
+                val locationsList = mutableListOf<Location>()
+                for (childSnapshot in snapshot.children) {
+                    val name = childSnapshot.child("name").getValue(String::class.java) ?: ""
+                    locationsList.add(Location(name = name)) // 다른 필드는 더미 데이터로 설정
                 }
+                locationsLiveData.value = locationsList
             }
+
             override fun onCancelled(error: DatabaseError) {
+                // 에러 처리
             }
         })
-        return mutableData
 
+        return locationsLiveData
     }
+
 }
