@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wandernow.databinding.ItemOneHourRecommendBinding
 
-class LocationRVAdapter(private var locationList: ArrayList<Location>): RecyclerView.Adapter<LocationRVAdapter.ViewHolder>() {
+class LocationRVAdapter(private var locationList: List<Location>): RecyclerView.Adapter<LocationRVAdapter.ViewHolder>() {
     interface MyItemClickListener{
         fun onItemClick(location: Location)
     }
@@ -18,7 +18,7 @@ class LocationRVAdapter(private var locationList: ArrayList<Location>): Recycler
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): LocationRVAdapter.ViewHolder {
-        val binding: ItemOneHourRecommendBinding = ItemOneHourRecommendBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
+        val binding = ItemOneHourRecommendBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
 
         return ViewHolder(binding)
     }
@@ -32,16 +32,13 @@ class LocationRVAdapter(private var locationList: ArrayList<Location>): Recycler
 
     inner class ViewHolder(val binding: ItemOneHourRecommendBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(location: Location) {
-            binding.location = location // 데이터 바인딩 설정
-            binding.executePendingBindings()
-
             binding.itemTimeTv2.text = location.time
             binding.itemMarkerTv.text = location.name
             binding.itemStarTv.text = location.star.toString()
             binding.itemTagTv1.text = location.tag1
             binding.itemTagTv2.text = location.tag2
             binding.itemTagTv2.text = location.tag2
-            binding.itemCoverImgIv.setImageResource(location.coverImg!!)
+//            binding.itemCoverImgIv.setImageResource(location.coverImg!!)
         }
     }
 

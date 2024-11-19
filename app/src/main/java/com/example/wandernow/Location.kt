@@ -7,6 +7,5 @@ data class Location(
     val tag1:String = "",
     val tag2:String = "",
     val tag3:String = "",
-    var coverImg: Int? = null,
-    var locations: ArrayList<Location>? = null
+    var coverImg: Int? = null
 )

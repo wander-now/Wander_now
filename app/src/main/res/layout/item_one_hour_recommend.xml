@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:fontFamily="@font/inter_semibold"
-            android:text="@{location.name}"
+            android:text="경기도 가평군"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/item_marker_icon"

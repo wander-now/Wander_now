@@ -21,10 +21,10 @@ class LocationRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val locationsList = mutableListOf<Location>()
                 for (childSnapshot in snapshot.children) {
-                    val name = childSnapshot.child("name").getValue(String::class.java) ?: ""
-                    locationsList.add(Location(name = name)) // 다른 필드는 더미 데이터로 설정
+                    val location = childSnapshot.getValue(Location::class.java)
+                    location?.let { locationsList.add(it)}
                 }
-                locationsLiveData.value = locationsList
+                locationsLiveData.postValue(locationsList)
             }
 
             override fun onCancelled(error: DatabaseError) {
