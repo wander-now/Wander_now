@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="-12dp"
         android:fontFamily="@font/noto_sans_kr"
         android:text="Nickname@gmail.com"
         android:textColor="#000000"
@@ -36,7 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="-12dp"
         android:fontFamily="@font/noto_sans_kr_bold"
         android:text="#닉네임_주니"
         android:textColor="#000000"
@@ -49,7 +47,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="계정 설정"
         android:textColor="#000000"
@@ -81,7 +79,7 @@
             android:paddingStart="15dp"
             android:text="비밀번호 및 보안"
             android:textAlignment="textStart"
-            android:textColor="#00530A"
+            android:textColor="#002805"
             android:textSize="15sp" />
 
         <Button
@@ -95,7 +93,7 @@
             android:paddingStart="15dp"
             android:text="개인정보 관리"
             android:textAlignment="textStart"
-            android:textColor="#00530A"
+            android:textColor="#002805"
             android:textSize="15sp" />
 
         <Button
@@ -109,7 +107,7 @@
             android:paddingStart="15dp"
             android:text="나의 리뷰 관리"
             android:textAlignment="textStart"
-            android:textColor="#00530A"
+            android:textColor="#002805"
             android:textSize="15sp" />
 
     </LinearLayout>
