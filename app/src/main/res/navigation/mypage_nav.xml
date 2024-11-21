@@ -24,7 +24,11 @@
         android:id="@+id/securityFragment"
         android:name="com.example.wandernow.SecurityFragment"
         android:label="fragment_security"
-        tools:layout="@layout/fragment_security" />
+        tools:layout="@layout/fragment_security" >
+        <action
+            android:id="@+id/action_securityFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/personalInfoFragment"
         android:name="com.example.wandernow.PersonalInfoFragment"
@@ -35,4 +39,9 @@
         android:name="com.example.wandernow.MyReviewsFragment"
         android:label="fragment_my_reviews"
         tools:layout="@layout/fragment_my_reviews" />
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.example.wandernow.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" />
 </navigation>
