@@ -8,5 +8,9 @@ import com.example.wandernow.repository.LocationRepository
 
 class LocationViewModel() : ViewModel() {
     private val repository = LocationRepository()
-    val locations: LiveData<List<Location>> = repository.getLocations()
+
+    fun getLocations(): LiveData<List<Location>> {
+        return repository.getLocations()
+    }
+
 }

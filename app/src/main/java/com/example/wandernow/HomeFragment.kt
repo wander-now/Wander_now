@@ -22,12 +22,9 @@ import java.util.ArrayList
 
 class HomeFragment :Fragment() {
     lateinit var binding: FragmentHomeBinding
-    private var popularLocationDatas = ArrayList<Location>()
     private val viewModel: LocationViewModel by activityViewModels()
     private lateinit var locationRVAdapter: LocationRVAdapter
-
-    private var database: FirebaseDatabase? = null
-    private var databaseReference: DatabaseReference? = null
+    private lateinit var popularRVAdapter: PopularRVAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,23 +33,9 @@ class HomeFragment :Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        database = FirebaseDatabase.getInstance() // 파이어 데이터베이스 연동
-        databaseReference = database!!.getReference("location")
-
-        popularLocationDatas.apply{
-            add(Location("","경남 거제시", 5.0,"한국적인","바다","노을",R.drawable.img_geoje))
-            add(Location("","경기도 수원시", 4.9,"도시","야경","바다",R.drawable.img_suwon))
-            add(Location("","경기도 연천군", 5.0,"가을","자연","관광",R.drawable.img_yeoncheon))
-            add(Location("","경북 경주시", 5.0,"한국적인","가을","단풍",R.drawable.img_gyeongju))
-        }
-
-        val popularRVAdapter = PopularRVAdapter(popularLocationDatas)
-        binding.homePopularRv.adapter = popularRVAdapter
-        binding.homePopularRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
         setupOneHourRecyclerView()
-        observeViewModel()
-
+        setupPopularRecyclerView()
+        observeLocations()
         return binding.root
     }
 
@@ -68,6 +51,12 @@ class HomeFragment :Fragment() {
         })
     }
 
+    private fun setupPopularRecyclerView() {
+        popularRVAdapter = PopularRVAdapter(emptyList())
+        binding.homePopularRv.adapter = popularRVAdapter
+        binding.homePopularRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
     private fun changeLocationDetailFragment(location: Location) {
         (context as MainActivity).supportFragmentManager.beginTransaction()
             .replace(R.id.main_frm, LocationDetailFragment().apply {
@@ -75,12 +64,16 @@ class HomeFragment :Fragment() {
             .commitAllowingStateLoss()
     }
 
-    private fun observeViewModel() {
-        viewModel.locations.observe(viewLifecycleOwner, Observer { locations ->
-            locations?.let {
-                locationRVAdapter.updateLocations(it)
-                locationRVAdapter.notifyDataSetChanged()
-            }
-        })
+    private fun observeLocations() {
+        viewModel.getLocations().observe(viewLifecycleOwner) { locations ->
+            val oneHourFiltered = locations.filter { it.time <= 60 }
+            val popularSorted = locations.sortedByDescending { it.star }
+
+            Log.d("HomeFragment", "Sorted locations: $popularSorted")
+
+            // 어댑터에 데이터 업데이트
+            locationRVAdapter.updateLocations(oneHourFiltered.take(5))
+            popularRVAdapter.updatePopularLocations(popularSorted.take(5))
+        }
     }
 }

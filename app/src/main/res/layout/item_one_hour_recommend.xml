@@ -64,12 +64,23 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_semibold"
             android:layout_marginLeft="3dp"
-            android:text="55분"
+            android:text="55"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/item_time_tv1"
             app:layout_constraintTop_toTopOf="@id/item_time_tv1"
             app:layout_constraintBottom_toBottomOf="@id/item_time_tv1"/>
+        <TextView
+            android:id="@+id/item_time_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:text="분"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/item_time_tv2"
+            app:layout_constraintTop_toTopOf="@id/item_time_tv2"
+            app:layout_constraintBottom_toBottomOf="@id/item_time_tv2"/>
 
         <ImageView
             android:id="@+id/item_marker_icon"
