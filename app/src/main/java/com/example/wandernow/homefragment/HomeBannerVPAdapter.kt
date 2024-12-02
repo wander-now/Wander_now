@@ -1,4 +1,4 @@
-package com.example.wandernow
+package com.example.wandernow.homefragment
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
