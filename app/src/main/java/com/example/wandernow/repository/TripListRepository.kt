@@ -3,29 +3,29 @@ package com.example.wandernow.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.wandernow.dataclass.Location
+import com.example.wandernow.dataclass.Triplist
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class LocationRepository {
-    private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("location")
+class TripListRepository {
+    private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("triplist")
 
-    fun getLocations(): LiveData<List<Location>> {
-        val locationsLiveData = MutableLiveData<List<Location>>()
+    fun getTripList(): LiveData<List<Triplist>> {
+        val triplistLiveData = MutableLiveData<List<Triplist>>()
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val locationsList = mutableListOf<Location>()
+                val tripList = mutableListOf<Triplist>()
                 for (childSnapshot in snapshot.children) {
-                    val location = childSnapshot.getValue(Location::class.java)
-                    if (location != null) {
-                        locationsList.add(location)
+                    val triplist = childSnapshot.getValue(Triplist::class.java)
+                    if (triplist != null) {
+                        tripList.add(triplist)
                     }
                 }
-                locationsLiveData.postValue(locationsList)
+                triplistLiveData.postValue(tripList)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -33,6 +33,6 @@ class LocationRepository {
             }
         })
 
-        return locationsLiveData
+        return triplistLiveData
     }
 }

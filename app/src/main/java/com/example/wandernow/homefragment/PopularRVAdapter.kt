@@ -1,15 +1,17 @@
-package com.example.wandernow
+package com.example.wandernow.homefragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.wandernow.R
 import com.example.wandernow.databinding.ItemPopularBinding
+import com.example.wandernow.dataclass.Location
 
 class PopularRVAdapter(
     private var popularLocations: List<Location>
 ): RecyclerView.Adapter<PopularRVAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PopularRVAdapter.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPopularBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
         return ViewHolder(binding)
     }
