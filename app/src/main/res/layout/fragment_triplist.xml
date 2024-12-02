@@ -11,20 +11,49 @@
         android:id="@+id/list_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
         android:text="여행 기록 리스트"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:textColor="#4E5966"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="28dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
     </TextView>
+
+    <ImageButton
+        android:id="@+id/add_list_btn"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/plus_btn"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="25dp">
+
+    </ImageButton>
+
+    <ImageView
+        android:id="@+id/trip_list_line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/gray_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/list_tv"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tripRV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/list_tv"
+        app:layout_constraintTop_toBottomOf="@id/trip_list_line_1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent">
-
     </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
