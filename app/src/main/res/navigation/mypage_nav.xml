@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mypage_nav"
+    app:startDestination="@id/accSettingsFragment">
+
+    <fragment
+        android:id="@+id/accSettingsFragment"
+        android:name="com.example.wandernow.AccSettingsFragment"
+        android:label="fragment_acc_settings"
+        tools:layout="@layout/fragment_acc_settings" >
+        <action
+            android:id="@+id/action_accSettingsFragment_to_securityFragment"
+            app:destination="@id/securityFragment" />
+        <action
+            android:id="@+id/action_accSettingsFragment_to_personalInfoFragment"
+            app:destination="@id/personalInfoFragment" />
+        <action
+            android:id="@+id/action_accSettingsFragment_to_myReviewsFragment"
+            app:destination="@id/myReviewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/securityFragment"
+        android:name="com.example.wandernow.SecurityFragment"
+        android:label="fragment_security"
+        tools:layout="@layout/fragment_security" >
+        <action
+            android:id="@+id/action_securityFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInfoFragment"
+        android:name="com.example.wandernow.PersonalInfoFragment"
+        android:label="fragment_personal_info"
+        tools:layout="@layout/fragment_personal_info" />
+    <fragment
+        android:id="@+id/myReviewsFragment"
+        android:name="com.example.wandernow.MyReviewsFragment"
+        android:label="fragment_my_reviews"
+        tools:layout="@layout/fragment_my_reviews" />
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.example.wandernow.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" />
+</navigation>
