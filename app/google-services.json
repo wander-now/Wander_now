@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "277362500867",
+    "project_id": "wandernow-4df68",
+    "storage_bucket": "wandernow-4df68.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277362500867:android:7ca9ef3bcbe52789a17536",
+        "android_client_info": {
+          "package_name": "com.example.wandernow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ2CFItaIn7gH9Kq58QnlL-8fbMGGzS-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

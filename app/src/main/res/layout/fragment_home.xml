@@ -9,18 +9,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
 
-        <View
-            android:id="@+id/home_banner"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/home_banner_vp"
             android:layout_width="match_parent"
             android:layout_height="284dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/img_home_banner"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/textView"
@@ -43,7 +41,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="#73000000"
-            app:layout_constraintBottom_toBottomOf="@+id/home_banner" />
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner_vp" />
 
         <TextView
             android:id="@+id/some_id"
@@ -60,7 +58,7 @@
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/home_banner"
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner_vp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/rectangle_3" />
 
@@ -96,7 +94,7 @@
             android:layout_marginTop="19dp"
             android:src="@drawable/icon_marker"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_banner" />
+            app:layout_constraintTop_toBottomOf="@+id/home_banner_vp" />
 
         <ImageView
             android:id="@+id/home_icon_weather"
@@ -189,4 +187,3 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
-

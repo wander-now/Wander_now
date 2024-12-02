@@ -2,41 +2,62 @@ package com.example.wandernow
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.wandernow.databinding.ItemOneHourRecommendBinding
 
-class LocationRVAdapter(private var locationList: ArrayList<Location>): RecyclerView.Adapter<LocationRVAdapter.ViewHolder>() {
+class LocationRVAdapter(
+    private var locations: List<Location>
+)
+    : RecyclerView.Adapter<LocationRVAdapter.ViewHolder>() {
+
+
     interface MyItemClickListener{
         fun onItemClick(location: Location)
     }
 
     private lateinit var myItemClickListener: MyItemClickListener
+
     fun setMyItemCLickListener(itemClickListener: MyItemClickListener){
         myItemClickListener = itemClickListener
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): LocationRVAdapter.ViewHolder {
-        val binding: ItemOneHourRecommendBinding = ItemOneHourRecommendBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
-
+        val binding = ItemOneHourRecommendBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: LocationRVAdapter.ViewHolder, position: Int) {
-        holder.bind(locationList[position])
-        holder.itemView.setOnClickListener{myItemClickListener.onItemClick(locationList[position])}
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(locations[position])
     }
 
-    override fun getItemCount(): Int = locationList.size
+    override fun getItemCount(): Int {
+        return locations.size.coerceAtMost(5)
+    }
 
     inner class ViewHolder(val binding: ItemOneHourRecommendBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(location: Location) {
-            binding.itemTimeTv2.text = location.time
+            binding.itemTimeTv2.text = location.time.toString()
             binding.itemMarkerTv.text = location.name
             binding.itemStarTv.text = location.star.toString()
             binding.itemTagTv1.text = location.tag1
             binding.itemTagTv2.text = location.tag2
-            binding.itemTagTv2.text = location.tag2
-            binding.itemCoverImgIv.setImageResource(location.coverImg!!)
+            binding.itemTagTv3.text = location.tag3
+
+            val imageUrl = location.imgPath
+            if (!imageUrl.isNullOrEmpty()) {
+                Glide.with(binding.root.context)
+                    .load(imageUrl)
+                    .into(binding.itemCoverImgIv)
+            } else {
+                binding.itemCoverImgIv.setImageResource(R.drawable.img_gapyeong) // 기본 이미지 설정
+            }
         }
+    }
+
+    fun updateLocations(newLocation: List<Location>) {
+        this.locations = newLocation
+        notifyDataSetChanged()
     }
 }
