@@ -45,6 +45,7 @@ android {
 }
 
 dependencies {
+    implementation (libs.circleindicator)
     implementation(libs.github.glide)
     implementation(libs.firebase.storage)
     implementation(libs.androidx.activity.ktx)
