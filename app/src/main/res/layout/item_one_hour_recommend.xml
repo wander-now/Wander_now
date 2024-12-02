@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="location"
+            type="com.example.wandernow.Location" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +13,7 @@
         android:layout_height="wrap_content"
         android:paddingEnd="1.5dp"
         android:paddingBottom="5dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="28dp"
         android:background="@drawable/gray_border">
 
         <androidx.cardview.widget.CardView

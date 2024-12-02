@@ -1,23 +1,35 @@
 package com.example.wandernow
 
-import android.provider.CallLog.Locations
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemAnimator.ItemHolderInfo
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.wandernow.databinding.ItemRecordBinding
-import com.example.wandernow.dataclass.Triplist
+//import com.example.wandernow.dataclass.Location
+//import com.example.wandernow.dataclass.Triplist
 
-class TriplistRVAdapter(private var tripList: ArrayList<Triplist>):RecyclerView.Adapter<TriplistRVAdapter.ViewHolder>() {
+class TriplistRVAdapter(private var tripList: ArrayList<Triplist>)
+    :RecyclerView.Adapter<TriplistRVAdapter.ViewHolder>() {
+
+    interface MyItemClickListener{
+        fun onItemClick(triplist: Triplist)
+    }
+
+    private lateinit var myItemClickListener: MyItemClickListener
+
+    fun setMyItemCLickListener(itemClickListener: MyItemClickListener){
+        myItemClickListener = itemClickListener
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): TriplistRVAdapter.ViewHolder {
-
         val binding: ItemRecordBinding = ItemRecordBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup,false)
         return  ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TriplistRVAdapter.ViewHolder, position: Int) {
         holder.bind(tripList[position])
+        holder.itemView.setOnClickListener {
+            myItemClickListener.onItemClick(tripList[position])
+        }
     }
 
     override fun getItemCount(): Int {

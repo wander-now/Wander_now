@@ -1,4 +1,4 @@
-package com.example.wandernow.dataclass
+package com.example.wandernow
 
 data class Location(
     val time:Int = 0,

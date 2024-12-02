@@ -1,14 +1,15 @@
-package com.example.wandernow.homefragment
+package com.example.wandernow
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.wandernow.R
 import com.example.wandernow.databinding.ItemOneHourRecommendBinding
-import com.example.wandernow.dataclass.Location
 
-class LocationRVAdapter(private var locations: List<Location>)
+class LocationRVAdapter(
+    private var locations: List<Location>
+)
     : RecyclerView.Adapter<LocationRVAdapter.ViewHolder>() {
 
 
@@ -22,16 +23,13 @@ class LocationRVAdapter(private var locations: List<Location>)
         myItemClickListener = itemClickListener
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): LocationRVAdapter.ViewHolder {
         val binding = ItemOneHourRecommendBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(locations[position])
-        holder.itemView.setOnClickListener {
-            myItemClickListener.onItemClick(locations[position])
-        }
     }
 
     override fun getItemCount(): Int {

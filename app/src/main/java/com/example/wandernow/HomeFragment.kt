@@ -1,4 +1,4 @@
-package com.example.wandernow.homefragment
+package com.example.wandernow
 
 import android.os.Bundle
 import android.os.Handler
@@ -11,11 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.wandernow.LocationDetailFragment
-import com.example.wandernow.MainActivity
-import com.example.wandernow.R
 import com.example.wandernow.databinding.FragmentHomeBinding
-import com.example.wandernow.dataclass.Location
 import com.example.wandernow.viewmodel.LocationViewModel
 import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
@@ -56,7 +52,7 @@ class HomeFragment :Fragment() {
         binding.homeOneHourRecommendRv.adapter = locationRVAdapter
         binding.homeOneHourRecommendRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        locationRVAdapter.setMyItemCLickListener(object: LocationRVAdapter.MyItemClickListener {
+        locationRVAdapter.setMyItemCLickListener(object: LocationRVAdapter.MyItemClickListener{
             override fun onItemClick(location: Location) {
                 changeLocationDetailFragment(location)
             }

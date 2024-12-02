@@ -1,4 +1,4 @@
-package com.example.wandernow.dataclass
+package com.example.wandernow
 
 data class Triplist (
     val date: String = "",

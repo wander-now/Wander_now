@@ -1,4 +1,4 @@
-package com.example.wandernow.homefragment
+package com.example.wandernow
 
 import android.os.Bundle
 import android.view.LayoutInflater

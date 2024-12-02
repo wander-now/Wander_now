@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homefragment.HomeFragment">
+    tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -144,7 +144,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
             android:paddingEnd="28dp"
             tools:listitem="@layout/item_one_hour_recommend"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -178,7 +177,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
             android:paddingEnd="28dp"
             tools:listitem="@layout/item_popular"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
