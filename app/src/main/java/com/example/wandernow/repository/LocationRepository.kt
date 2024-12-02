@@ -35,4 +35,25 @@ class LocationRepository {
 
         return locationsLiveData
     }
+
+    fun getLocationById(locationId: Int, callback: (Location?) -> Unit) {
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (childSnapshot in snapshot.children) {
+                    val location = childSnapshot.getValue(Location::class.java)
+                    // ID가 일치하는지 확인
+                    if (location != null && location.id == locationId) {
+                        callback(location) // ID가 일치하는 경우
+                        return
+                    }
+                }
+                callback(null) // ID가 일치하는 경우가 없으면 null 반환
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("LocationRepository", "Error fetching location: ${error.message}")
+                callback(null)
+            }
+        })
+    }
 }

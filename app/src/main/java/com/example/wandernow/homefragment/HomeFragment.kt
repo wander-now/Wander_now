@@ -27,6 +27,7 @@ class HomeFragment :Fragment() {
     private lateinit var popularRVAdapter: PopularRVAdapter
     private val timer = Timer()
     private val handler = Handler(Looper.getMainLooper())
+    var bundle = Bundle()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,12 +68,25 @@ class HomeFragment :Fragment() {
         popularRVAdapter = PopularRVAdapter(emptyList())
         binding.homePopularRv.adapter = popularRVAdapter
         binding.homePopularRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        popularRVAdapter.setMyItemCLickListener(object: PopularRVAdapter.MyItemClickListener {
+            override fun onItemClick(location: Location) {
+                changeLocationDetailFragment(location)
+            }
+        })
     }
 
     private fun changeLocationDetailFragment(location: Location) {
+        val bundle = Bundle().apply {
+            putInt("locationId", location.id)
+        }
+        val locationDetailFragment = LocationDetailFragment().apply {
+            arguments = bundle
+        }
+
         (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, LocationDetailFragment().apply {
-            })
+            .replace(R.id.main_frm, locationDetailFragment)
+            .addToBackStack(null)
             .commitAllowingStateLoss()
     }
 

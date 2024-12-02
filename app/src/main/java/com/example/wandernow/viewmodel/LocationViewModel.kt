@@ -13,4 +13,8 @@ class LocationViewModel() : ViewModel() {
         return repository.getLocations()
     }
 
+    fun getLocationById(locationId: Int, callback: (Location?) -> Unit) {
+        repository.getLocationById(locationId, callback)
+    }
+
 }

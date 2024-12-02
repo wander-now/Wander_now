@@ -1,25 +1,49 @@
 package com.example.wandernow
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.wandernow.databinding.FragmentLocationDetailBinding
+import com.example.wandernow.dataclass.Location
+import com.example.wandernow.homefragment.LocationRVAdapter
+import com.example.wandernow.viewmodel.LocationViewModel
 
 class LocationDetailFragment: Fragment() {
     lateinit var binding : FragmentLocationDetailBinding
     private var locationdetailDatas = ArrayList<LocationDetail>()
     private var locationAttractionDatas = ArrayList<LocationAttraction>()
+    private val viewModel: LocationViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentLocationDetailBinding.inflate(inflater,container,false)
+
+        binding.locationDetailBackBtn.setOnClickListener {
+            requireActivity().onBackPressed() // 이전 화면으로 돌아가기
+        }
+
+
+        val locationId = arguments?.getInt("locationId")
+        Log.d("LocationDetailFragment", "Received locationId: $locationId")
+
+        locationId?.let { id ->
+            viewModel.getLocationById(id) { location ->
+                if (location != null) {
+                    displayLocationDetails(location) // 위치 정보를 UI에 표시
+                } else {
+                    Log.e("LocationDetailFragment", "Location not found")
+                }
+            }
+        }
 
         locationdetailDatas.apply{
             add(LocationDetail(R.drawable.profile, "주니",4.0,"짚라인과 수상 레포츠를 즐기면서 스릴을 만끽했어요. 친구들과 함께라면 더욱 즐거울 것 같아요!"))
@@ -44,5 +68,20 @@ class LocationDetailFragment: Fragment() {
         return binding.root
     }
 
+    private fun displayLocationDetails(location: Location) {
+        Log.d("LocationDetailFragment", "Location details: Name: ${location.name}, Star: ${location.star}")
+        binding.locationDetailName.text = location.name
+        binding.locationDetailStarTv.text = location.star.toString()
+        binding.locationDetailDescription.text = location.description
+
+        // 이미지 로딩
+        if (!location.imgPath.isNullOrEmpty()) {
+            Glide.with(this)
+                .load(location.imgPath)
+                .into(binding.locationDetailIv)
+        } else {
+            binding.locationDetailIv.setImageResource(R.drawable.img_gapyeong) // 기본 이미지
+        }
+    }
 
 }

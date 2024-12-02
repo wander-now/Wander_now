@@ -11,6 +11,17 @@ import com.example.wandernow.dataclass.Location
 class PopularRVAdapter(
     private var popularLocations: List<Location>
 ): RecyclerView.Adapter<PopularRVAdapter.ViewHolder>() {
+
+    interface MyItemClickListener{
+        fun onItemClick(location: Location)
+    }
+
+    private lateinit var myItemClickListener: MyItemClickListener
+
+    fun setMyItemCLickListener(itemClickListener: MyItemClickListener){
+        myItemClickListener = itemClickListener
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPopularBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
         return ViewHolder(binding)
@@ -18,6 +29,9 @@ class PopularRVAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(popularLocations[position])
+        holder.itemView.setOnClickListener {
+            myItemClickListener.onItemClick(popularLocations[position])
+        }
     }
 
     override fun getItemCount(): Int {
