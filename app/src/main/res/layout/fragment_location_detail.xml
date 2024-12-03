@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
 
         <ImageButton
             android:id="@+id/location_detail_back_btn"
@@ -55,8 +56,8 @@
             android:id="@+id/location_detail_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
             android:layout_marginTop="10dp"
             android:padding="5dp"
             android:text="수도권에 거주하는 사람들에게 있어 1박 2일 정도의 일정으로 캠핑, 여행하기 좋은 근교 여행지로 유명하다. 가평은 수도권에서 지리적으로 가까운 곳임에도 도심을 벗어나 교외의 느낌을 주는 점도 긍정적으로 작용한다. 아침 고요 수목원과 남이섬을 다녀오는 관광 상품이 인기가 많고 대학생들의 장소로 유명한 대성리도 가평에 속한다."
@@ -135,13 +136,23 @@
             android:layout_marginTop="9dp"
             android:layout_marginStart="28dp"/>
 
+        <ImageButton
+            android:id="@+id/location_detail_review_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_review_plus"
+            android:layout_marginTop="3dp"
+            app:layout_constraintEnd_toEndOf="@id/location_detail_review_rv"
+            app:layout_constraintTop_toTopOf="@id/location_detail_review_tv"
+            app:layout_constraintBottom_toBottomOf="@id/location_detail_review_tv"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/location_detail_review_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
             app:layout_constraintTop_toBottomOf="@id/location_detail_review_tv"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -175,8 +186,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/location_detail_attraction_tv"
             android:layout_marginTop="7dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"/>
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

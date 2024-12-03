@@ -16,9 +16,10 @@ import com.example.wandernow.viewmodel.LocationViewModel
 
 class LocationDetailFragment: Fragment() {
     lateinit var binding : FragmentLocationDetailBinding
+    private val viewModel: LocationViewModel by activityViewModels()
+
     private var locationdetailDatas = ArrayList<LocationDetail>()
     private var locationAttractionDatas = ArrayList<LocationAttraction>()
-    private val viewModel: LocationViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,12 +29,16 @@ class LocationDetailFragment: Fragment() {
         binding = FragmentLocationDetailBinding.inflate(inflater,container,false)
 
         binding.locationDetailBackBtn.setOnClickListener {
-            requireActivity().onBackPressed() // 이전 화면으로 돌아가기
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
+        binding.locationDetailReviewBtn.setOnClickListener{
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, MyReviewsFragment())
+                .commitAllowingStateLoss()
+        }
 
         val locationId = arguments?.getInt("locationId")
-        Log.d("LocationDetailFragment", "Received locationId: $locationId")
 
         locationId?.let { id ->
             viewModel.getLocationById(id) { location ->
@@ -69,18 +74,16 @@ class LocationDetailFragment: Fragment() {
     }
 
     private fun displayLocationDetails(location: Location) {
-        Log.d("LocationDetailFragment", "Location details: Name: ${location.name}, Star: ${location.star}")
         binding.locationDetailName.text = location.name
         binding.locationDetailStarTv.text = location.star.toString()
         binding.locationDetailDescription.text = location.description
 
-        // 이미지 로딩
         if (!location.imgPath.isNullOrEmpty()) {
             Glide.with(this)
                 .load(location.imgPath)
                 .into(binding.locationDetailIv)
         } else {
-            binding.locationDetailIv.setImageResource(R.drawable.img_gapyeong) // 기본 이미지
+            binding.locationDetailIv.setImageResource(R.drawable.img_gapyeong)
         }
     }
 
