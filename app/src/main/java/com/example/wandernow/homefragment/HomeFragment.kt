@@ -177,7 +177,6 @@ class HomeFragment :Fragment() {
         }
     }
 
-
     private fun getLocation() {
         // 위치 권한 체크
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -219,10 +218,5 @@ class HomeFragment :Fragment() {
 
         val text = address
         binding.currentLocationTv2.text = text
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // 필요시 리소스 해제
     }
 }
