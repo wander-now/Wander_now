@@ -33,6 +33,12 @@ class AccSettingsFragment : Fragment() {
         binding?.button3?.setOnClickListener {
             findNavController().navigate(R.id.action_accSettingsFragment_to_myReviewsFragment)
         }
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
 }
