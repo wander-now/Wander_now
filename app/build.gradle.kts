@@ -10,7 +10,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.wandernow"
-        minSdk = 24
+        minSdk = 33
+        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -45,9 +46,15 @@ android {
 }
 
 dependencies {
-    implementation (libs.circleindicator)
+    //위치 정보
+    implementation ("com.google.android.gms:play-services-location:21.3.0")
+
+    //fire base 관련
     implementation(libs.github.glide)
     implementation(libs.firebase.storage)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.storage.ktx)
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -57,9 +64,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.firebase.database)
-    implementation(libs.firebase.firestore.ktx)
-    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

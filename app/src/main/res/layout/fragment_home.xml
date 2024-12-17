@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".homefragment.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -68,11 +68,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:fontFamily="@font/inter_semibold"
-            android:text="현재 위치 : 경기도 고양시 덕양구 항공대학로 76"
+            android:text="현재 위치 :"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="@+id/home_icon_marker"
             app:layout_constraintStart_toEndOf="@+id/home_icon_marker"
             app:layout_constraintTop_toTopOf="@+id/home_icon_marker" />
+
+        <TextView
+            android:id="@+id/current_location_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="경기도 고양시 덕양구 항공대학로 76"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/current_location_tv"
+            app:layout_constraintStart_toEndOf="@+id/current_location_tv"
+            app:layout_constraintTop_toTopOf="@+id/current_location_tv" />
 
         <TextView
             android:id="@+id/current_weather"
@@ -144,6 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
             android:paddingEnd="28dp"
             tools:listitem="@layout/item_one_hour_recommend"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -177,6 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
             android:paddingEnd="28dp"
             tools:listitem="@layout/item_popular"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

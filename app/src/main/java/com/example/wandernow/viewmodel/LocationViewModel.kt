@@ -2,7 +2,7 @@ package com.example.wandernow.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.wandernow.Location
+import com.example.wandernow.dataclass.Location
 import com.example.wandernow.repository.LocationRepository
 
 
@@ -11,6 +11,10 @@ class LocationViewModel() : ViewModel() {
 
     fun getLocations(): LiveData<List<Location>> {
         return repository.getLocations()
+    }
+
+    fun getLocationById(locationId: Int, callback: (Location?) -> Unit) {
+        repository.getLocationById(locationId, callback)
     }
 
 }
