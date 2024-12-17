@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wandernow.databinding.ItemRecordBinding
-import com.example.wandernow.dataclass.Triplist
 
 class TriplistRVAdapter(private var tripList: ArrayList<Triplist>)
     :RecyclerView.Adapter<TriplistRVAdapter.ViewHolder>() {

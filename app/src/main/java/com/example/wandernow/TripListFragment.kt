@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wandernow.databinding.FragmentTriplistBinding
-import com.example.wandernow.dataclass.Triplist
 
 class TripListFragment :Fragment(){
     lateinit var binding: FragmentTriplistBinding
