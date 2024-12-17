@@ -1,5 +1,6 @@
 package com.example.wandernow.homefragment
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,6 +8,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,17 +21,48 @@ import com.example.wandernow.R
 import com.example.wandernow.databinding.FragmentHomeBinding
 import com.example.wandernow.dataclass.Location
 import com.example.wandernow.viewmodel.LocationViewModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
 import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
+import android.Manifest
+import android.location.Geocoder
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.Priority
+import java.util.Locale
+
 
 class HomeFragment :Fragment() {
     lateinit var binding: FragmentHomeBinding
     private val viewModel: LocationViewModel by activityViewModels()
+    var bundle = Bundle()
+
+    //adapter
     private lateinit var locationRVAdapter: LocationRVAdapter
     private lateinit var popularRVAdapter: PopularRVAdapter
+
+    //banner
     private val timer = Timer()
     private val handler = Handler(Looper.getMainLooper())
-    var bundle = Bundle()
+
+    //gps
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var locationRequest: LocationRequest
+    private lateinit var requestLocationPermissionLauncher: ActivityResultLauncher<String>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        requestLocationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                getLocation()
+            } else {
+                binding.currentLocationTv2.text = "위치 권한이 필요합니다."
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +75,14 @@ class HomeFragment :Fragment() {
         setupPopularRecyclerView()
         observeLocations()
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+
+        locationRequest = LocationRequest.Builder(10000L) // 10초 (밀리초 단위)
+            .setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+            .setMinUpdateIntervalMillis(5000L) // 최소 업데이트 간격 5초
+            .build()
+
+
         val homeBannerVPAdapter = HomeBannerVPAdapter(this)
         homeBannerVPAdapter.addFragment(HomeBannerFragment(R.drawable.img_home_banner))
         homeBannerVPAdapter.addFragment(HomeBannerFragment(R.drawable.img_home_banner2))
@@ -48,6 +91,8 @@ class HomeFragment :Fragment() {
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         startAutoSlide(homeBannerVPAdapter)
+
+        requestLocationPermission()
 
         return binding.root
     }
@@ -114,5 +159,70 @@ class HomeFragment :Fragment() {
                 }
             }
         }
+    }
+
+    private fun requestLocationPermission() {
+        when {
+            ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
+                getLocation()
+            }
+            ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) -> {
+                // 권한 필요 이유를 사용자에게 설명
+                binding.currentLocationTv2.text = "위치 권한이 필요합니다."
+            }
+            else -> {
+                // 권한 요청
+                requestLocationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+            }
+        }
+    }
+
+
+    private fun getLocation() {
+        // 위치 권한 체크
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
+        } else {
+            // 권한이 없으면 요청
+            requestLocationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+    }
+
+    private val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            for (location in locationResult.locations) {
+                updateLocationText(location)
+            }
+        }
+    }
+
+    private fun getAddressFromLocation(latitude: Double, longitude: Double): String {
+        return try {
+            val geocoder = Geocoder(requireContext(), Locale.getDefault())
+
+            val addresses = geocoder.getFromLocation(latitude, longitude, 1) // 최대 1개의 주소 가져오기
+            if (addresses != null && addresses.isNotEmpty()) {
+                addresses[0].getAddressLine(0) // 전체 주소 (도로명 주소 포함)
+            } else {
+                "주소를 찾을 수 없습니다."
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            "주소 변환 중 오류 발생: ${e.message}"
+        }
+    }
+
+    private fun updateLocationText(location: android.location.Location) {
+        val latitude = location.latitude
+        val longitude = location.longitude
+        val address = getAddressFromLocation(latitude, longitude)
+
+        val text = address
+        binding.currentLocationTv2.text = text
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // 필요시 리소스 해제
     }
 }
